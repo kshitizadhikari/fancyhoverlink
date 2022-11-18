@@ -1,0 +1,53 @@
+:root {
+  --blue: rgb(17, 39, 160);
+  --light-blue: rgb(23, 100, 163);
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+}
+
+.container {
+  background-color: rgb(8, 8, 8);
+}
+
+.menu {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.link {
+  display: block;
+  font-size: clamp(1em, 5vw, 4em);
+  text-decoration: none;
+  border-top: 2px solid grey;
+  padding: clamp(0.5em, 1vw, 1em) clamp(1em, 4vw, 4em);
+  position: relative;
+}
+
+.link:nth-child(4) {
+  border-bottom: 2px solid grey;
+}
+
+.link::before {
+  content: "";
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--blue) var(--light-blue-percent),
+    var(--light-blue)
+  );
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  position: absolute;
+}
+
+.link:hover::before {
+  width: 100%;
+  transition: ease 500ms;
+}
